@@ -1,30 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
-$sql = "CREATE DATABASE IF NOT EXISTS blog_app_db";
-if (mysqli_query($conn, $sql)) {
-    echo "Database created successfully";
-} else {
-    echo "Error creating database: " . mysqli_error($conn);
-}
-
-mysqli_close($conn);
+require_once 'db_handler.php';
+connectToDB();
 ?>
 <head>
     <title>Welcome!</title>
     <link rel="stylesheet" href="css/welcome_page_style.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="js/add_user_ajax.js"></script>
 </head>
 
 <body>
