@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-require_once 'db_handler.php';
-connectToDB();
-?>
+
 <head>
     <title>Welcome!</title>
     <link rel="stylesheet" href="css/welcome_page_style.css">
