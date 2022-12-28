@@ -7,10 +7,10 @@ $(function () {
             dataType: 'json',
             data: $('form').serialize(),
             success: function (response) {
-                if(response['error'].length === 0) {
-                    location.href = 'index.php';
+                if(response['result'] === 'user_created') {
+                    location.href = 'main_page.php';
                 } else {
-                    alert(response['error']);
+                    alert(response['result']);
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {

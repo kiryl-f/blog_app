@@ -66,10 +66,9 @@ function createUser($login, $password, $name, $email) {
     $sql = "INSERT INTO MyGuests (login, password, name, email) VALUES ($login, $password, $name, $email)";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        echo json_encode(array('result' => 'user_created'));
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo json_encode(array('result' => 'error'));
     }
-
     $conn->close();
 }
