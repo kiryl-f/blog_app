@@ -63,7 +63,8 @@ function createUser($login, $password, $name, $email) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "INSERT INTO users (login, password, name, email) VALUES ($login, $password, $name, $email)";
+    $sql
+        = "INSERT INTO users (login, password, name, email) VALUES ($login, $password, $name, $email)";
 
     if (mysqli_query($conn, $sql)) {
         echo json_encode(array('result' => 'user_created'));
