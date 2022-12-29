@@ -54,18 +54,18 @@
 function createUser($login, $password, $name, $email) {
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $db_password = "";
     $dbname = "blog_app_db";
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $username, $db_password, $dbname);
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "INSERT INTO MyGuests (login, password, name, email) VALUES ($login, $password, $name, $email)";
+    $sql = "INSERT INTO users (login, password, name, email) VALUES ($login, $password, $name, $email)";
 
-    if ($conn->query($sql) === TRUE) {
+    if (mysqli_query($conn, $sql)) {
         echo json_encode(array('result' => 'user_created'));
     } else {
         echo json_encode(array('result' => 'error'));

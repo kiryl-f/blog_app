@@ -4,7 +4,7 @@ $(function () {
         $.ajax({
             type: 'post',
             url: 'add_user.php',
-            dataType: 'json',
+            dataType: 'text',
             data: $('form').serialize(),
             success: function (response) {
                 if(response['result'] === 'user_created') {

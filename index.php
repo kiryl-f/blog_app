@@ -10,6 +10,10 @@
 
 <body>
 <div class="container" id="login">
+    <?php
+/*    require_once 'db_handler.php';
+    createUser('login', 'password', 'name', 'email');
+    */?>
     <h1>Welcome</h1>
     <p>Enter your data here</p>
     <form>
