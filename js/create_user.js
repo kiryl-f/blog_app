@@ -3,18 +3,20 @@ $(function () {
         e.preventDefault();
         $.ajax({
             type: 'post',
-            url: 'add_user.php',
-            dataType: 'text',
+            url: 'add_user_to_db.php',
+            dataType: 'json',
             data: $('form').serialize(),
             success: function (response) {
                 if(response['result'] === 'user_created') {
-                    location.href = 'main_page.php';
+                    //location.href = 'main_page.php';
+                    alert('cool!');
                 } else {
-                    alert(response['result']);
+                    alert("result" + response['result']);
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                alert("error: " + errorThrown);
+                console.log(errorThrown);
+                alert("errorr: " + errorThrown);
             }
         });
     });

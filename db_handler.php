@@ -51,6 +51,17 @@
     //$conn->close();
 }*/
 
+
+function loginTaken($conn, $login): bool {
+    $sql = "SELECT login FROM users WHERE login='$login'";
+    $query = mysqli_query($conn, $sql);
+    $arr = mysqli_fetch_all($query, MYSQLI_ASSOC);
+    if (count($arr) > 0) {
+        return true;
+    }
+    return false;
+}
+
 function createUser($login, $password, $name, $email) {
     $servername = "localhost";
     $username = "root";
@@ -63,13 +74,16 @@ function createUser($login, $password, $name, $email) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql
-        = "INSERT INTO users (login, password, name, email) VALUES ($login, $password, $name, $email)";
-
-    if (mysqli_query($conn, $sql)) {
-        echo json_encode(array('result' => 'user_created'));
+    if(loginTaken($conn, $login)) {
+        echo json_encode(array('result' => 'login_taken'));
     } else {
-        echo json_encode(array('result' => 'error'));
+        $sql = "INSERT INTO users (login, password, name, email) VALUES ('$login', '$password', '$name', '$email')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo json_encode(array('result' => 'user_created'));
+        } else {
+            echo json_encode(array('result' => 'error'));
+        }
     }
     $conn->close();
 }
