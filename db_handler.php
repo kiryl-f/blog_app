@@ -62,7 +62,19 @@ function loginTaken($conn, $login): bool {
     return false;
 }
 
-function createUser($login, $password, $name, $email) {
+function checkUserFields($user) {
+    if(strlen($user->getErrorMessage()) === 0) {
+        return 'ok';
+    }
+    return $user->getErrorMessage();
+}
+
+function createUser($user) {
+    if(checkUserFields($user) !== 'ok') {
+        echo json_encode(array('result' => checkUserFields($user)));
+        exit;
+    }
+
     $servername = "localhost";
     $username = "root";
     $db_password = "";
@@ -74,11 +86,15 @@ function createUser($login, $password, $name, $email) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    if(loginTaken($conn, $login)) {
+    $login = $user->getLogin();
+    $password = $user->getPassword();
+    $name = $user->getName();
+    $email = $user->getEmail();
+
+    if(loginTaken($conn, $user->getLogin())) {
         echo json_encode(array('result' => 'login_taken'));
     } else {
-        $sql = "INSERT INTO users (login, password, name, email) VALUES ('$login', '$password', '$name', '$email')";
-
+        $sql = "INSERT INTO users (login, password, name, email) VALUES ('$login',   '$password', '$name', '$email')";
         if (mysqli_query($conn, $sql)) {
             echo json_encode(array('result' => 'user_created'));
         } else {

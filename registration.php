@@ -16,7 +16,7 @@
         <input type="text" id="login" name="login" placeholder="Enter your login here" required><br>
         <input type="password" id="password" name="password" placeholder="Enter your password here" required><br>
         <input type="text" id="name" name="name" placeholder="Enter your name here" required><br>
-        <input type="text" id="email" name="email" placeholder="Enter your email here" required><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email here" required><br>
         <input type="submit" value="Log in">
     </form>
 </div>
