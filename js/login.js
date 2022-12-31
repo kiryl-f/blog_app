@@ -3,19 +3,19 @@ $(function () {
         e.preventDefault();
         $.ajax({
             type: 'post',
-            url: 'add_user_to_db.php',
+            url: 'check_user.php',
             dataType: 'json',
             data: $('form').serialize(),
             success: function (response) {
-                if(response['result'] === 'user_created') {
+                if(response['result'] === 'cool') {
                     location.href = 'main_page.php';
                 } else {
-                    alert(response['result']);
+                    alert("result" + response['result']);
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(errorThrown);
-                alert("error: " + errorThrown);
+                alert("errorr: " + errorThrown);
             }
         });
     });

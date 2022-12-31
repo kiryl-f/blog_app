@@ -87,3 +87,29 @@ function createUser($login, $password, $name, $email) {
     }
     $conn->close();
 }
+
+function userExists($login, $password) {
+    $servername = "localhost";
+    $username = "root";
+    $db_password = "";
+    $dbname = "blog_app_db";
+
+    $conn = new mysqli($servername, $username, $db_password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT login, password FROM users WHERE login='$login'";
+    $query = mysqli_query($conn, $sql);
+    $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+    if(count($data) === 0) {
+        return 'not_exist';
+    } else {
+        if ($data[0]['password'] === $password) {
+            return 'cool';
+        } else {
+            return 'password_incorrect';
+        }
+    }
+}
