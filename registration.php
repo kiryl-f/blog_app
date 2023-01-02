@@ -3,12 +3,22 @@
 
 <head>
     <title>Registration</title>
-    <link rel="stylesheet" href="css/welcome_page_style.css">
+    <link rel="stylesheet" href="css/main_page_style.css">
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="js/create_user.js"></script>
 </head>
 
 <body>
+
+<div class="topnav">
+    <a href="index.php">Home</a>
+    <div class="topnav-right">
+        <a href="authentication.php">Log in</a>
+        <a class="active" href="registration.php">Create an account</a>
+    </div>
+</div>
+
+
 <div class="container" id="login">
     <h1>Welcome</h1>
     <p>Create an account</p>
