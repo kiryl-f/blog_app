@@ -3,7 +3,7 @@
 
 <head>
     <title>Registration</title>
-    <link rel="stylesheet" href="css/main_page_style.css">
+    <link rel="stylesheet" href="css/header.css">
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="js/create_user.js"></script>
 </head>

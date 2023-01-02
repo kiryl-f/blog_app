@@ -8,7 +8,8 @@ $(function () {
             data: $('form').serialize(),
             success: function (response) {
                 if(response['result'] === 'cool') {
-                    location.href = 'main_page.php';
+                    //location.href = 'index.php';
+                    alert('cool!');
                 } else {
                     alert("result" + response['result']);
                 }

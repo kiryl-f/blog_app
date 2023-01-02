@@ -8,7 +8,7 @@ $(function () {
             data: $('form').serialize(),
             success: function (response) {
                 if(response['result'] === 'user_created') {
-                    location.href = 'main_page.php';
+                    location.href = 'index.php';
                 } else {
                     alert(response['result']);
                 }
