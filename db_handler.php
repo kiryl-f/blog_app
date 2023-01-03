@@ -96,6 +96,7 @@ function createUser($user) {
     } else {
         $sql = "INSERT INTO users (login, password, name, email) VALUES ('$login',   '$password', '$name', '$email')";
         if (mysqli_query($conn, $sql)) {
+            setcookie('name', $name);
             echo json_encode(array('result' => 'user_created'));
         } else {
             echo json_encode(array('result' => 'error'));
@@ -116,13 +117,14 @@ function userExists($login, $password) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT login, password FROM users WHERE login='$login'";
+    $sql = "SELECT login, password, name FROM users WHERE login='$login'";
     $query = mysqli_query($conn, $sql);
     $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
     if(count($data) === 0) {
         return 'not_exist';
     } else {
         if ($data[0]['password'] === $password) {
+            setcookie('name', $data[0]['name']);
             return 'cool';
         } else {
             return 'password_incorrect';

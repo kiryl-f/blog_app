@@ -8,15 +8,14 @@ $(function () {
             data: $('form').serialize(),
             success: function (response) {
                 if(response['result'] === 'cool') {
-                    //location.href = 'index.php';
-                    alert('cool!');
+                    location.href = 'index.php';
                 } else {
-                    alert("result" + response['result']);
+                    alert("result: " + response['result']);
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(errorThrown);
-                alert("errorr: " + errorThrown);
+                alert("error: " + errorThrown);
             }
         });
     });
