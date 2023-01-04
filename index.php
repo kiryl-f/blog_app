@@ -10,10 +10,12 @@
 
 <?php
 $log_in_button_text = 'Log in';
+$log_in_button_link = "authentication.php";
 if(isset($_COOKIE['name'])) {
     $name = $_COOKIE['name'];
     echo "Hello, $name";
     $log_in_button_text = 'Log out';
+    $log_in_button_link = "log_out.php";
 }
 ?>
 
@@ -22,9 +24,15 @@ if(isset($_COOKIE['name'])) {
     <a href="#news">News</a>
     <a href="#contact">Contact</a>
     <div class="topnav-right">
-        <a href="authentication.php"><?php echo $log_in_button_text?></a>
+        <a href=<?php echo $log_in_button_link?>><?php echo $log_in_button_text?></a>
         <a href="registration.php">Create an account</a>
     </div>
 </div>
+
+<?php if(isset($_COOKIE['name'])) : ?>
+    <div>
+        <a href="new_blog_post.php">Create a blog post</a>
+    </div>
+<?php endif; ?>
 
 </body>
