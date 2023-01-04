@@ -11,6 +11,8 @@
 <?php
 $log_in_button_text = 'Log in';
 if(isset($_COOKIE['name'])) {
+    $name = $_COOKIE['name'];
+    echo "Hello, $name";
     $log_in_button_text = 'Log out';
 }
 ?>
