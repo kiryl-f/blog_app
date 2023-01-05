@@ -9,9 +9,6 @@
 <body>
 
 <?php
-$conn = new mysqli("localhost", "root", "", 'blog_app_db');
-var_dump($conn);
-
 $log_in_button_text = 'Log in';
 $log_in_button_link = "authentication.php";
 if(isset($_COOKIE['name'])) {

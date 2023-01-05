@@ -3,7 +3,6 @@
 require_once 'user.php';
 
 $conn = new mysqli("localhost", "root", "", 'blog_app_db');
-createUser(new User('lg', 'pw','nm','mail'));
 
 function loginTaken($login): bool {
     global $conn;
