@@ -24,25 +24,12 @@ function checkUserFields($user) {
 }
 
 function createUser($user) {
-
     global $conn;
 
     if(checkUserFields($user) !== 'ok') {
         echo json_encode(array('result' => checkUserFields($user)));
         exit;
     }
-
-    /*$servername = "localhost";
-    $username = "root";
-    $db_password = "";
-    $dbname = "blog_app_db";
-
-    $conn = new mysqli($servername, $username, $db_password, $dbname);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }*/
-
     $login = $user->getLogin();
     $password = $user->getPassword();
     $name = $user->getName();
@@ -62,18 +49,7 @@ function createUser($user) {
     $conn->close();
 }
 
-function userExists($login, $password) {
-    /*$servername = "localhost";
-    $username = "root";
-    $db_password = "";
-    $dbname = "blog_app_db";
-
-    $conn = new mysqli($servername, $username, $db_password, $dbname);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }*/
-
+function userExists($login, $password): string {
     global $conn;
 
     $sql = "SELECT login, password, name FROM users WHERE login='$login'";
