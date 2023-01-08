@@ -42,5 +42,10 @@ class Blog {
         $this->text = $text;
     }
 
-
+    public function checkLength() {
+        if(strlen($this->text) < 20) {
+            return 'Text must be at least 20 characters long';
+        }
+        return '';
+    }
 }
