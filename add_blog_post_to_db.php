@@ -1,2 +1,3 @@
 <?php
-echo json_encode(array('res' => $_POST['blog_text']));
+$name = $_POST['blog_name'];
+$text = $_POST['blog_text'];
