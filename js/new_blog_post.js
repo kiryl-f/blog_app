@@ -7,11 +7,7 @@ $(function () {
             dataType: 'json',
             data: $('form').serialize(),
             success: function (response) {
-                if(response['result'] === 'cool') {
-                    location.href = 'index.php';
-                } else {
-                    alert("result: " + response['result']);
-                }
+                alert(response['res']);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(errorThrown);

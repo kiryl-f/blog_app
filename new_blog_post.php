@@ -5,6 +5,7 @@
     <title>Registration</title>
     <link rel="stylesheet" href="css/header.css">
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="js/new_blog_post.js"></script>
 </head>
 
 <body>
@@ -20,10 +21,11 @@
 <div>
     <form>
         <h2>New blog post</h2>
-        <textarea id="blog_name" placeholder="Blog name..."></textarea>
+        <textarea id="blog_name" name="blog_name" placeholder="Blog name..."></textarea>
         <br>
-        <textarea id="blog_text" rows="20" cols="50" placeholder="Blog text"></textarea>
+        <textarea id="blog_text" name="blog_text" rows="20" cols="50" placeholder="Blog text"></textarea>
         <br>
+        <input type="submit" value="Create a blog post">
     </form>
 </div>
 </body>
