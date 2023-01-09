@@ -3,11 +3,13 @@
 class Blog {
     private $name;
     private $text;
+    private $date;
 
     public function __construct($name, $text)
     {
         $this->name = $name;
         $this->text = $text;
+        $this->date =  date("Y/m/d");
     }
 
     public function getName()
@@ -29,6 +31,17 @@ class Blog {
     {
         $this->text = $text;
     }
+
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    public function setDate($date): void
+    {
+        $this->date = $date;
+    }
+
 
     public function checkLength(): string {
         if(strlen($this->text) < 20) {
