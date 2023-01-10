@@ -1,6 +1,6 @@
 <?php
 
-require_once 'user.php';
+require_once 'oop/user.php';
 
 $conn = new mysqli("localhost", "root", "", 'blog_app_db');
 
@@ -43,7 +43,7 @@ function createUser($user) {
             setcookie('name', $name);
             echo json_encode(array('result' => 'user_created'));
         } else {
-            echo json_encode(array('result' => 'error'));
+            echo json_encode(array('result' => 'errorr'));
         }
     }
     $conn->close();
