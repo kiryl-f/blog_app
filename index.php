@@ -17,6 +17,16 @@ if(isset($_COOKIE['name'])) {
     $log_in_button_text = 'Log out';
     $log_in_button_link = "log_out.php";
 }
+
+
+$conn = new mysqli("localhost", "root", "", 'blog_app_db');
+$sql = "SELECT * FROM blogs";
+$query = mysqli_query($conn, $sql);
+$blogs = array();
+while($blog = mysqli_fetch_assoc($query)) {
+    $blogs[] = $blog;
+}
+//var_dump($blogs);
 ?>
 
 <div class="topnav">
@@ -35,4 +45,12 @@ if(isset($_COOKIE['name'])) {
     </div>
 <?php endif; ?>
 
+
+<table>
+    <?php foreach($blogs as $blog): ?>
+        <tr>
+            <td><?= $blog['NAME'] ?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
 </body>

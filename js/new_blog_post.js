@@ -7,7 +7,11 @@ $(function () {
             dataType: 'json',
             data: $('form').serialize(),
             success: function (response) {
-                alert(response['res']);
+                if(response['result'] === 'blog_added') {
+                    location.href = 'index.php';
+                } else {
+                    alert("Oooops! Something went wrong!");
+                }
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(errorThrown);
