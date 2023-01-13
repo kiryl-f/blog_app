@@ -14,6 +14,14 @@
     font-size: 17px;
 }
 
+div.scroll {
+    padding: 4px;
+    background-color: #08c708;
+    width: 300px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
 /* Change the color of links on hover */
 .topnav a:hover {
     background-color: #ddd;

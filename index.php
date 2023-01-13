@@ -45,12 +45,13 @@ while($blog = mysqli_fetch_assoc($query)) {
     </div>
 <?php endif; ?>
 
-
-<table>
+<div id="blogs_table" class="scroll">
     <?php foreach($blogs as $blog): ?>
-        <tr>
-            <td><?= $blog['NAME'] ?></td>
-        </tr>
+        <div id="blogpost">
+            <img src="https://i.picsum.photos/id/168/200/200.jpg?hmac=VxnpUGg87Q47YRONmdsU2vNGSPjCs5vrwiAL-0hEIHM" alt="Ooops!">
+            <p><?= $blog['NAME'] ?></p>
+            <br>
+        </div>
     <?php endforeach; ?>
-</table>
+</div>
 </body>
