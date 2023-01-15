@@ -52,7 +52,7 @@ function createUser($user) {
 function userExists($login, $password): string {
     global $conn;
 
-    $sql = "SELECT login, password, name FROM users WHERE login='$login'";
+    $sql = "SELECT id, login, password, name FROM users WHERE login='$login'";
     $query = mysqli_query($conn, $sql);
     $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
     if(count($data) === 0) {
@@ -60,6 +60,7 @@ function userExists($login, $password): string {
     } else {
         if ($data[0]['password'] === $password) {
             setcookie('name', $data[0]['name']);
+            setcookie('id', $data[0]['id']);
             return 'cool';
         } else {
             return 'password_incorrect';

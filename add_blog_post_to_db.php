@@ -14,3 +14,4 @@ if($blog->getErrorMessage() === '') {
 } else {
     echo json_encode(array('res' => $blog->getErrorMessage()));
 }
+//echo json_encode(array('result' => 'blog_added'));

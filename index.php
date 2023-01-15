@@ -12,16 +12,20 @@
 $log_in_button_text = 'Log in';
 $log_in_button_link = "authentication.php";
 $logged_in = false;
+$id = '';
+$name = '';
 if(isset($_COOKIE['name'])) {
     $logged_in = true;
     $name = $_COOKIE['name'];
-    echo "Hello, $name";
+    $id = $_COOKIE['id'];
+    echo "Hello, $name (user $id)";
     $log_in_button_text = 'Log out';
     $log_in_button_link = "log_out.php";
 }
 
 
 $conn = new mysqli("localhost", "root", "", 'blog_app_db');
+
 $sql = "SELECT * FROM blogs";
 $query = mysqli_query($conn, $sql);
 $blogs = array();
@@ -54,7 +58,7 @@ while($blog = mysqli_fetch_assoc($query)) {
             <br>
             <a href="blog.php?id=<?php echo $blog['ID']?>?name=<?php echo $blog['NAME']?>"><?= $blog['NAME'] ?></a>
             <br>
-            <?php if($logged_in):?>
+            <?php if($logged_in && $id === $blog['added_by_id']):?>
             <a href="delete_blog_post.php?id=<?php echo $blog['ID']?>">Delete</a>
             <?php endif;?>
             <br>

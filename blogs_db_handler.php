@@ -5,7 +5,8 @@ $conn = new mysqli("localhost", "root", "", 'blog_app_db');
 function addBlogToDB($name, $text) {
     global $conn;
     $date = date("Y/m/d");
-    $sql = "INSERT INTO blogs (name, text, date) VALUES ('$name', '$text', '$date')";
+    $user_id = $_COOKIE['id'];
+    $sql = "INSERT INTO blogs (name, text, date, added_by_id) VALUES ('$name', '$text', '$date', '$user_id')";
     if (mysqli_query($conn, $sql)) {
         echo json_encode(array('result' => 'blog_added'));
     } else {
