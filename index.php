@@ -11,7 +11,9 @@
 <?php
 $log_in_button_text = 'Log in';
 $log_in_button_link = "authentication.php";
+$logged_in = false;
 if(isset($_COOKIE['name'])) {
+    $logged_in = true;
     $name = $_COOKIE['name'];
     echo "Hello, $name";
     $log_in_button_text = 'Log out';
@@ -52,7 +54,9 @@ while($blog = mysqli_fetch_assoc($query)) {
             <br>
             <a href="blog.php?id=<?php echo $blog['ID']?>?name=<?php echo $blog['NAME']?>"><?= $blog['NAME'] ?></a>
             <br>
+            <?php if($logged_in):?>
             <a href="delete_blog_post.php?id=<?php echo $blog['ID']?>">Delete</a>
+            <?php endif;?>
             <br>
         </div>
     <?php endforeach; ?>
