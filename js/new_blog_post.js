@@ -10,7 +10,7 @@ $(function () {
                 if(response['result'] === 'blog_added') {
                     location.href = 'index.php';
                 } else {
-                    alert("Oooops! Something went wrong!");
+                    alert(response['result']);
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
