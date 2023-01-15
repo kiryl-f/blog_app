@@ -49,7 +49,10 @@ while($blog = mysqli_fetch_assoc($query)) {
     <?php foreach($blogs as $blog): ?>
         <div id="blogpost">
             <img src="https://i.picsum.photos/id/168/200/200.jpg?hmac=VxnpUGg87Q47YRONmdsU2vNGSPjCs5vrwiAL-0hEIHM" alt="Ooops!">
+            <br>
             <a href="blog.php?id=<?php echo $blog['ID']?>?name=<?php echo $blog['NAME']?>"><?= $blog['NAME'] ?></a>
+            <br>
+            <a href="delete_blog_post.php?id=<?php echo $blog['ID']?>">Delete</a>
             <br>
         </div>
     <?php endforeach; ?>
