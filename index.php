@@ -4,6 +4,9 @@
 <head>
     <title>Welcome!</title>
     <link rel="stylesheet" href="css/header.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="js/delete_blog_post.js"></script>
 </head>
 
 <body>
@@ -58,9 +61,11 @@ while($blog = mysqli_fetch_assoc($query)) {
             <br>
             <a href="blog.php?id=<?php echo $blog['ID']?>?name=<?php echo $blog['NAME']?>"><?= $blog['NAME'] ?></a>
             <br>
-            <?php if($logged_in && $id === $blog['added_by_id']):?>
-            <a href="delete_blog_post.php?id=<?php echo $blog['ID']?>">Delete</a>
-            <?php endif;?>
+            <?php /*if($logged_in && $id === $blog['added_by_id']):*/?><!--
+            <a href="delete_blog_post.php?id=<?php /*echo $blog['ID']*/?>">Delete</a>
+            --><?php /*endif;*/?>
+
+            <button type="button" onclick="deleteBlogPost(<?php echo $blog['ID']?>)">Delete</button>
             <br>
         </div>
     <?php endforeach; ?>

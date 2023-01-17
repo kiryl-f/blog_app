@@ -9,15 +9,12 @@ $(function () {
             success: function (response) {
                 if(response['result'] === 'user_created') {
                     location.href = 'index.php';
-                    console.log(1);
                 } else {
                     alert(response['result']);
-                    console.log(2);
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                console.log(3);
-                alert("errorrr: " + errorThrown);
+                alert("error: " + errorThrown);
             }
         });
     });
