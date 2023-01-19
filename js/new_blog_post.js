@@ -1,6 +1,7 @@
 $(function () {
     $('form').on('submit', function (e) {
         e.preventDefault();
+        console.log($("textarea#blog_name").val());
         $.ajax({
             type: 'post',
             url: 'add_blog_post_to_db.php',

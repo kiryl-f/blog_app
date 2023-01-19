@@ -56,7 +56,7 @@ while($blog = mysqli_fetch_assoc($query)) {
 
 <div id="blogs_table" class="scroll">
     <?php foreach($blogs as $blog): ?>
-        <div id="blogpost <?php echo $blog['ID']?>">
+        <div id="blogpost<?php echo $blog['ID']?>">
             <img src="https://i.picsum.photos/id/168/200/200.jpg?hmac=VxnpUGg87Q47YRONmdsU2vNGSPjCs5vrwiAL-0hEIHM" alt="Ooops!">
             <br>
             <a href="blog.php?id=<?php echo $blog['ID']?>?name=<?php echo $blog['NAME']?>"><?= $blog['NAME'] ?></a>
