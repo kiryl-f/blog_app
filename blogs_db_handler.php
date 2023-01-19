@@ -14,11 +14,12 @@ function addBlogToDB($name, $text) {
     }
 }
 
-function deleteBlogPost($id) {
+function deleteBlogPost($id): string
+{
     $conn = new mysqli("localhost", "root", "", 'blog_app_db');
     $sql = "DELETE FROM blogs WHERE id='$id'";
     if (mysqli_query($conn, $sql)) {
-        echo json_encode(array('res' => 'deleted'));
+        return 'deleted';
     }
-    echo json_encode(array('res' => 'error'));
+    return 'error';
 }
