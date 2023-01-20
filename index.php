@@ -61,8 +61,10 @@ while($blog = mysqli_fetch_assoc($query)) {
             <br>
             <a href="blog.php?id=<?php echo $blog['ID']?>?name=<?php echo $blog['NAME']?>"><?= $blog['NAME'] ?></a>
             <br>
-            <button type="button" onclick="deleteBlogPost(<?php echo $blog['ID']?>)">Delete</button>
-            <br>
+            <?php if($blog['added_by_id'] === $_COOKIE['id']): ?>
+                <button type="button" onclick="deleteBlogPost(<?php echo $blog['ID']?>)">Delete</button>
+                <br>
+            <?php endif;?>
         </div>
     <?php endforeach; ?>
 </div>
