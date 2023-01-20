@@ -26,8 +26,29 @@ if(isset($_COOKIE['name'])) {
     $log_in_button_link = "log_out.php";
 }
 
+$db_name = "blog_app_db";
+$conn = new mysqli("localhost", "root", "");
+if(!mysqli_select_db($conn, $db_name)) {
+    $create_db_sql = "CREATE DATABASE blog_app_db";
+}
+$conn->select_db($db_name);
+$create_users_table_sql = "CREATE TABLE IF NOT EXISTS users (
+id INT(11) AUTO_INCREMENT PRIMARY KEY,
+login VARCHAR(255) NOT NULL,
+password VARCHAR(255) NOT NULL,
+name VARCHAR(255),
+email VARCHAR(255))";
+$conn->query($create_users_table_sql);
 
-$conn = new mysqli("localhost", "root", "", 'blog_app_db');
+$create_blogs_table_sql = "CREATE TABLE IF NOT EXISTS blogs (
+id INT(11) AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255) NOT NULL,
+text VARCHAR(255) NOT NULL,
+date VARCHAR(255) NOT NULL,
+added_by_id INT(11) NOT NULL)";
+$conn -> query($create_blogs_table_sql);
+
+//$conn = new mysqli("localhost", "root", "", 'blog_app_db');
 
 $sql = "SELECT * FROM blogs";
 $query = mysqli_query($conn, $sql);
@@ -56,13 +77,13 @@ while($blog = mysqli_fetch_assoc($query)) {
 
 <div id="blogs_table" class="scroll">
     <?php foreach($blogs as $blog): ?>
-        <div id="blogpost<?php echo $blog['ID']?>">
+        <div id="blogpost<?php echo $blog['id']?>">
             <img src="https://i.picsum.photos/id/168/200/200.jpg?hmac=VxnpUGg87Q47YRONmdsU2vNGSPjCs5vrwiAL-0hEIHM" alt="Ooops!">
             <br>
-            <a href="blog.php?id=<?php echo $blog['ID']?>?name=<?php echo $blog['NAME']?>"><?= $blog['NAME'] ?></a>
+            <a href="blog.php?id=<?php echo $blog['id']?>?name=<?php echo $blog['name']?>"><?= $blog['name'] ?></a>
             <br>
             <?php if($blog['added_by_id'] === $_COOKIE['id']): ?>
-                <button type="button" onclick="deleteBlogPost(<?php echo $blog['ID']?>)">Delete</button>
+                <button type="button" onclick="deleteBlogPost(<?php echo $blog['id']?>)">Delete</button>
                 <br>
             <?php endif;?>
         </div>
