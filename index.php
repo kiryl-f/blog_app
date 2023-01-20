@@ -80,7 +80,7 @@ while($blog = mysqli_fetch_assoc($query)) {
         <div id="blogpost<?php echo $blog['id']?>">
             <img src="https://i.picsum.photos/id/168/200/200.jpg?hmac=VxnpUGg87Q47YRONmdsU2vNGSPjCs5vrwiAL-0hEIHM" alt="Ooops!">
             <br>
-            <a href="blog.php?id=<?php echo $blog['id']?>?name=<?php echo $blog['name']?>"><?= $blog['name'] ?></a>
+            <a href="blog_page.php?id=<?php echo $blog['id']?>?name=<?php echo $blog['name']?>"><?= $blog['name'] ?></a>
             <br>
             <?php if($blog['added_by_id'] === $_COOKIE['id']): ?>
                 <button type="button" onclick="deleteBlogPost(<?php echo $blog['id']?>)">Delete</button>
