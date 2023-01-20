@@ -4,7 +4,7 @@ require_once 'oop/blog.php';
 require_once 'blogs_db_handler.php';
 
 $name = $_POST['blog_name'];
-$text = 'Problem is here!!!';
+$text = $_POST['blog_text'];
 $blog = new Blog($name, $text);
 
 if($blog->getErrorMessage() === '') {

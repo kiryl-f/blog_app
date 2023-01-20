@@ -21,9 +21,10 @@
 <div>
     <form>
         <h2>New blog post</h2>
+        <script></script>
         <textarea id="blog_name" name="blog_name" placeholder="Blog name..." required></textarea>
         <br>
-        <textarea id="blog_text" name="blog_text" rows="20" cols="50" placeholder="Blog text" required></textarea>
+        <textarea id="blog_text" name="blog_text"  rows="20" cols="30" placeholder="Blog text" required></textarea>
         <br>
         <input type="submit" value="Create a blog post">
     </form>
