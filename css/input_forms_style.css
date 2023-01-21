@@ -1,0 +1,27 @@
+.submit_form {
+    font-size: 18px;
+    margin-top: 7px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    color: #222222;
+    background-color: aliceblue;
+}
+
+.submit_form:hover {
+    color: aliceblue;
+    background-color: #222222;
+}
+
+.input_form {
+    font-size: 22px;
+    margin-top: 5px;
+    padding: 5px 8px;
+}
+
+#welcome_header {
+    font-size: 35px;
+}
+
+#enter_data_paragraph {
+    font-size: 20px;
+}

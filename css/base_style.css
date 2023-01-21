@@ -2,12 +2,6 @@ html {
     background-color: #FAEBD7;
 }
 
-#blogs_table {
-     width: 30em;
-     overflow-x: auto;
-     white-space: nowrap;
-}
-
 footer {
     text-align: center;
     position: fixed;
