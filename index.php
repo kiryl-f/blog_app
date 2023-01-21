@@ -61,8 +61,6 @@ while($blog = mysqli_fetch_assoc($query)) {
 
 <div class="topnav">
     <a class="active" href="#home">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
     <div class="topnav-right">
         <a href=<?php echo $log_in_button_link?>><?php echo $log_in_button_text?></a>
         <a href="registration.php">Create an account</a>
@@ -71,7 +69,10 @@ while($blog = mysqli_fetch_assoc($query)) {
 
 <?php if(isset($_COOKIE['name'])) : ?>
     <div>
-        <a href="new_blog_post.php">Create a blog post</a>
+        <!--<a href="new_blog_post.php">Create a blog post</a>-->
+        <form action="new_blog_post.php">
+            <input type="submit" value="Create a blog post">
+        </form>
     </div>
 <?php endif; ?>
 
@@ -82,9 +83,11 @@ while($blog = mysqli_fetch_assoc($query)) {
             <br>
             <a href="blog_page.php?id=<?php echo $blog['id']?>?name=<?php echo $blog['name']?>"><?= $blog['name'] ?></a>
             <br>
-            <?php if($blog['added_by_id'] === $_COOKIE['id']): ?>
-                <button type="button" onclick="deleteBlogPost(<?php echo $blog['id']?>)">Delete</button>
-                <br>
+            <?php if(isset($_COOKIE['id'])): ?>
+                <?php if($blog['added_by_id'] === $_COOKIE['id']): ?>
+                    <button type="button" onclick="deleteBlogPost(<?php echo $blog['id']?>)">Delete</button>
+                    <br>
+                <?php endif;?>
             <?php endif;?>
         </div>
     <?php endforeach; ?>
