@@ -11,3 +11,9 @@ footer {
     font-family: Georgia;
     bottom: 0;
 }
+
+.scroll {
+    width: 30em;
+    overflow-x: auto;
+    white-space: nowrap;
+}
