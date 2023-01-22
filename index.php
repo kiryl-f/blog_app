@@ -65,12 +65,14 @@ while($blog = mysqli_fetch_assoc($query)) {
     <div class="topnav-right">
         <a href=<?php echo $log_in_button_link?>><?php echo $log_in_button_text?></a>
         <a href="registration.php">Create an account</a>
+        <?php if(isset($_COOKIE['id'])):?>
+            <a href="my_articles.php">My articles</a>
+        <?php endif;?>
     </div>
 </div>
 
 <?php if(isset($_COOKIE['name'])) : ?>
     <div>
-        <!--<a href="new_blog_post.php">Create a blog post</a>-->
         <form action="new_blog_post.php">
             <input type="submit" value="Create a blog post">
         </form>
@@ -82,7 +84,7 @@ while($blog = mysqli_fetch_assoc($query)) {
         <div id="blogpost<?php echo $blog['id']?>">
             <img src="https://i.picsum.photos/id/168/200/200.jpg?hmac=VxnpUGg87Q47YRONmdsU2vNGSPjCs5vrwiAL-0hEIHM" alt="Ooops!">
             <br>
-            <a href="blog_page.php?id=<?php echo $blog['id']?>?name=<?php echo $blog['name']?>"><?= $blog['name'] ?></a>
+            <a href="blog_page.php?id=<?php echo $blog['id']?>?name=<?php echo $blog['name']?>"><?= $blog['name'] .' ('. $blog['date'] .')' ?></a>
             <br>
             <?php if(isset($_COOKIE['id'])): ?>
                 <?php if($blog['added_by_id'] === $_COOKIE['id']): ?>

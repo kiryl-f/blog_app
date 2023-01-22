@@ -9,7 +9,7 @@ function deleteBlogPost(id) {
             success: function (response) {
                 if(response['res'] === 'deleted') {
                     alert('Blog post successfully deleted!');
-                    $("#blogpost"+id).remove();
+                    $("#blogpost" + id).remove();
                 } else {
                     alert('An error occurred while deleting the blog post :(');
                 }
@@ -19,5 +19,13 @@ function deleteBlogPost(id) {
                 alert("error: " + errorThrown);
             }
         });
+    }
+}
+
+function goToMyArticles(id) {
+    if(id === '') {
+        alert('Create an account!');
+    } else {
+        location.href = 'my_articles.php';
     }
 }
