@@ -39,7 +39,7 @@ while($blog = mysqli_fetch_assoc($query)) {
     </div>
 </div>
 
-<h2 style="color: #222222; font-size: 36px" align="center">Your articles</h2>
+<h2 style="color: #222222; font-size: 36px" align="center">Your blogs</h2>
 
 <div id="blogs_table" class="scroll">
     <?php foreach($blogs as $blog): ?>

@@ -21,11 +21,3 @@ function deleteBlogPost(id) {
         });
     }
 }
-
-function goToMyArticles(id) {
-    if(id === '') {
-        alert('Create an account!');
-    } else {
-        location.href = 'my_articles.php';
-    }
-}

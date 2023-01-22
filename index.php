@@ -66,29 +66,30 @@ while($blog = mysqli_fetch_assoc($query)) {
         <a href=<?php echo $log_in_button_link?>><?php echo $log_in_button_text?></a>
         <a href="registration.php">Create an account</a>
         <?php if(isset($_COOKIE['id'])):?>
-            <a href="my_articles.php">My articles</a>
+            <a href="my_blogs.php">My blogs</a>
         <?php endif;?>
     </div>
 </div>
 
+<h1 style="color: #222222; font-size: 36px" align="center">All blogs</h1>
+
 <?php if(isset($_COOKIE['name'])) : ?>
-    <div>
+    <div style="margin-bottom: 8px; margin-top: 8px">
         <form action="new_blog_post.php">
             <input type="submit" value="Create a blog post">
         </form>
     </div>
 <?php endif; ?>
-
 <div id="blogs_table" class="scroll">
     <?php foreach($blogs as $blog): ?>
-        <div id="blogpost<?php echo $blog['id']?>">
-            <img src="https://i.picsum.photos/id/168/200/200.jpg?hmac=VxnpUGg87Q47YRONmdsU2vNGSPjCs5vrwiAL-0hEIHM" alt="Ooops!">
+        <div id="blogpost<?php echo $blog['id']?>" style="margin-top: 10px">
+            <img src="https://i.picsum.photos/id/168/200/200.jpg?hmac=VxnpUGg87Q47YRONmdsU2vNGSPjCs5vrwiAL-0hEIHM" alt="Ooops!" style="border-radius: 16px">
             <br>
-            <a href="blog_page.php?id=<?php echo $blog['id']?>?name=<?php echo $blog['name']?>"><?= $blog['name'] .' ('. $blog['date'] .')' ?></a>
+            <a style="margin-bottom: 5px; margin-top: 5px" href="blog_page.php?id=<?php echo $blog['id']?>?name=<?php echo $blog['name']?>"><?= $blog['name'] .' ('. $blog['date'] .')' ?></a>
             <br>
             <?php if(isset($_COOKIE['id'])): ?>
                 <?php if($blog['added_by_id'] === $_COOKIE['id']): ?>
-                    <button type="button" onclick="deleteBlogPost(<?php echo $blog['id']?>)">Delete</button>
+                    <button type="button" style="margin-top: 5px" onclick="deleteBlogPost(<?php echo $blog['id']?>)">Delete</button>
                     <br>
                 <?php endif;?>
             <?php endif;?>
