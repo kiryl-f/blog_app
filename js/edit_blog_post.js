@@ -1,0 +1,3 @@
+function editBlogPost(id) {
+
+}

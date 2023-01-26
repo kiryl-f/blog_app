@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/main_page_style.css">
     <link rel="stylesheet" href="css/base_style.css">
+    <link rel="stylesheet" href="css/input_forms_style.css">
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="js/delete_blog_post.js"></script>
 </head>
@@ -57,7 +58,6 @@ $blogs = array();
 while($blog = mysqli_fetch_assoc($query)) {
     $blogs[] = $blog;
 }
-//var_dump($blogs);
 ?>
 
 <div class="topnav">
@@ -76,14 +76,15 @@ while($blog = mysqli_fetch_assoc($query)) {
 <?php if(isset($_COOKIE['name'])) : ?>
     <div style="margin-bottom: 8px; margin-top: 8px">
         <form action="new_blog_post.php">
-            <input type="submit" value="Create a blog post">
+            <input type="submit" value="Create a blog post" id="new_blog">
         </form>
     </div>
 <?php endif; ?>
 <div id="blogs_table" class="scroll">
     <?php foreach($blogs as $blog): ?>
         <div id="blogpost<?php echo $blog['id']?>" style="margin-top: 10px">
-            <img src="https://i.picsum.photos/id/168/200/200.jpg?hmac=VxnpUGg87Q47YRONmdsU2vNGSPjCs5vrwiAL-0hEIHM" alt="Ooops!" style="border-radius: 16px">
+            <img src="https://i.picsum.photos/id/168/200/200.jpg?hmac=VxnpUGg87Q47YRONmdsU2vNGSPjCs5vrwiAL-0hEIHM"
+                 alt="Ooops!" style="border-radius: 16px" onclick="expandImage()" id="blog_cover_img">
             <br>
             <a style="margin-bottom: 5px; margin-top: 5px" href="blog_page.php?id=<?php echo $blog['id']?>?name=<?php echo $blog['name']?>"><?= $blog['name'] .' ('. $blog['date'] .')' ?></a>
             <br>
