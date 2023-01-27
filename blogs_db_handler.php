@@ -16,10 +16,22 @@ function addBlogToDB($name, $text): string
 
 function deleteBlogPost($id): string
 {
-    $conn = new mysqli("localhost", "root", "", 'blog_app_db');
+    global $conn;
     $sql = "DELETE FROM blogs WHERE id='$id'";
     if (mysqli_query($conn, $sql)) {
         return 'deleted';
+    }
+    return 'error';
+}
+
+function editBlogPost($id, $blog): string
+{
+    global $conn;
+    $name = $blog->getName();
+    $text = $blog->getText();
+    $sql = "UPDATE blogs SET name='$name', text='$text' WHERE id='$id'";
+    if (mysqli_query($conn, $sql)) {
+        return 'blog_added';
     }
     return 'error';
 }
