@@ -4,6 +4,7 @@
 <head>
     <title>New blog post</title>
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/base_style.css">
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="js/new_blog_post.js"></script>
 </head>

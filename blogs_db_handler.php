@@ -57,3 +57,14 @@ function getBlogsByCreatorID($id): array {
     }
     return $blogs;
 }
+
+function getBlogByID($id) {
+    $conn = new mysqli("localhost", "root", "", "blog_app_db");
+    $get_blogs_sql = "SELECT * FROM blogs WHERE blogs.id='$id'";
+    $query = mysqli_query($conn, $get_blogs_sql);
+    $blogs = array();
+    while($blog = mysqli_fetch_assoc($query)) {
+        $blogs[] = $blog;
+    }
+    return $blogs[0];
+}

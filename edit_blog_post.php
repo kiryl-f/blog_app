@@ -11,25 +11,15 @@
 </head>
 
 <?php
-$log_in_button_text = 'Log in';
-$log_in_button_link = "authentication.php";
-$logged_in = false;
-$id = $_COOKIE['id'];
-$name = $_COOKIE['name'];
-$log_in_button_text = 'Log out';
-echo "Hello, $name (user $id)";
+$log_in_button_text = '';
+$log_in_button_link = '';
+require_once 'cookies.php';
 
-$blog_id = 8;
-$conn = new mysqli("localhost", "root", "", "blog_app_db");
-$get_blogs_sql = "SELECT * FROM blogs WHERE blogs.id='$blog_id'";
-$query = mysqli_query($conn, $get_blogs_sql);
-$blogs = array();
-while($blog = mysqli_fetch_assoc($query)) {
-    $blogs[] = $blog;
-}
-var_dump($blogs);
-$name = $blogs[0]['name'];
-$text = $blogs[0]['text'];
+$blog_id = $_POST['id_input'];
+
+$blog = getBlogByID($blog_id);
+$name = $blog['name'];
+$text = $blog['text'];
 ?>
 
 <body>
