@@ -44,10 +44,10 @@ $text = $blogs[0]['text'];
 
 <div>
     <form>
-        <input type="hidden" value="<?=$blog_id?>">
-        <textarea rows="1" id="name" name="text"><?=$name?></textarea>
+        <input id="blog_id" name="blog_id" type="hidden" value="<?=$blog_id?>">
+        <textarea rows="1" id="new_text" name="new_text"><?=$name?></textarea>
         <br>
-        <textarea id="name" name="name"><?=$text?></textarea>
+        <textarea id="new_name" name="new_name"><?=$text?></textarea>
         <br>
         <input type="submit" value="Save changes">
     </form>
