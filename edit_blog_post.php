@@ -36,9 +36,9 @@ $text = $blog['text'];
 <div>
     <form>
         <input id="blog_id" name="blog_id" type="hidden" value="<?=$blog_id?>">
-        <textarea rows="1" id="new_text" name="new_text"><?=$name?></textarea>
+        <textarea id="new_name" name="new_name"><?=$name?></textarea>
         <br>
-        <textarea id="new_name" name="new_name"><?=$text?></textarea>
+        <textarea rows="1" id="new_text" name="new_text"><?=$text?></textarea>
         <br>
         <input type="submit" value="Save changes">
     </form>

@@ -10,7 +10,7 @@ $(function () {
             success: function (response) {
                 if(response['res'] === 'saved') {
                     alert('Changes saved!');
-                    location.href = 'index.php';
+                    location.href = 'my_blogs.php';
                 } else {
                     alert('An error occurred while saving changes :(');
                 }
