@@ -35,3 +35,13 @@ function saveBlogPostChanges($id, $blog): string
     }
     return 'error';
 }
+
+function getAllBlogs() {
+    global $conn;
+    $sql = "SELECT * FROM blogs";
+    $query = mysqli_query($conn, $sql);
+    while($blog = mysqli_fetch_assoc($query)) {
+        $blogs[] = $blog;
+    }
+    return $blogs;
+}

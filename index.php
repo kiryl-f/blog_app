@@ -14,50 +14,15 @@
 <body>
 
 <?php
-$log_in_button_text = 'Log in';
-$log_in_button_link = "authentication.php";
-$logged_in = false;
-$id = '';
-$name = '';
-if(isset($_COOKIE['name'])) {
-    $logged_in = true;
-    $name = $_COOKIE['name'];
-    $id = $_COOKIE['id'];
-    echo "Hello, $name (user $id)";
-    $log_in_button_text = 'Log out';
-    $log_in_button_link = "log_out.php";
-}
 
-$db_name = "blog_app_db";
-$conn = new mysqli("localhost", "root", "");
-if(!mysqli_select_db($conn, $db_name)) {
-    $create_db_sql = "CREATE DATABASE blog_app_db";
-}
-$conn->select_db($db_name);
-$create_users_table_sql = "CREATE TABLE IF NOT EXISTS users (
-id INT(11) AUTO_INCREMENT PRIMARY KEY,
-login VARCHAR(255) NOT NULL,
-password VARCHAR(255) NOT NULL,
-name VARCHAR(255),
-email VARCHAR(255))";
-$conn->query($create_users_table_sql);
+$log_in_button_text = '';
+$log_in_button_link = '';
+$conn = null;
+require_once 'cookies.php';
+require_once 'create_db_and_connect.php';
 
-$create_blogs_table_sql = "CREATE TABLE IF NOT EXISTS blogs (
-id INT(11) AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(255) NOT NULL,
-text VARCHAR(255) NOT NULL,
-date VARCHAR(255) NOT NULL,
-added_by_id INT(11) NOT NULL)";
-$conn -> query($create_blogs_table_sql);
-
-//$conn = new mysqli("localhost", "root", "", 'blog_app_db');
-
-$sql = "SELECT * FROM blogs";
-$query = mysqli_query($conn, $sql);
-$blogs = array();
-while($blog = mysqli_fetch_assoc($query)) {
-    $blogs[] = $blog;
-}
+require_once 'blogs_db_handler.php';
+$blogs = getAllBlogs();
 ?>
 
 <div class="topnav">
