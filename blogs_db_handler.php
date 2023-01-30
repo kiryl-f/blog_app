@@ -36,10 +36,22 @@ function saveBlogPostChanges($id, $blog): string
     return 'error';
 }
 
-function getAllBlogs() {
+function getAllBlogs(): array {
     global $conn;
+    $blogs = array();
     $sql = "SELECT * FROM blogs";
     $query = mysqli_query($conn, $sql);
+    while($blog = mysqli_fetch_assoc($query)) {
+        $blogs[] = $blog;
+    }
+    return $blogs;
+}
+
+function getBlogsByCreatorID($id): array {
+    global $conn;
+    $get_blogs_sql = "SELECT * FROM blogs WHERE blogs.added_by_id='$id'";
+    $query = mysqli_query($conn, $get_blogs_sql);
+    $blogs = array();
     while($blog = mysqli_fetch_assoc($query)) {
         $blogs[] = $blog;
     }

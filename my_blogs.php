@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>My articles</title>
+    <title>My blogs</title>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/main_page_style.css">
     <link rel="stylesheet" href="css/base_style.css">
@@ -12,21 +12,14 @@
 </head>
 
 <?php
-$log_in_button_text = 'Log in';
-$log_in_button_link = "authentication.php";
-$logged_in = false;
-$id = $_COOKIE['id'];
-$name = $_COOKIE['name'];
-$log_in_button_text = 'Log out';
-echo "Hello, $name (user $id)";
+$log_in_button_text = '';
+$log_in_button_link = '';
 
-$conn = new mysqli("localhost", "root", "", "blog_app_db");
-$get_blogs_sql = "SELECT * FROM blogs WHERE blogs.added_by_id='$id'";
-$query = mysqli_query($conn, $get_blogs_sql);
-$blogs = array();
-while($blog = mysqli_fetch_assoc($query)) {
-    $blogs[] = $blog;
-}
+require_once 'cookies.php';
+require_once 'blogs_db_handler.php';
+
+$id = $_COOKIE['id'];
+$blogs = getBlogsByCreatorID($id);
 ?>
 
 <body>
