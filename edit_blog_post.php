@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>My articles</title>
+    <title>My blogs</title>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/main_page_style.css">
     <link rel="stylesheet" href="css/base_style.css">
@@ -19,7 +19,7 @@ $name = $_COOKIE['name'];
 $log_in_button_text = 'Log out';
 echo "Hello, $name (user $id)";
 
-$blog_id = $_POST['id_input'];
+$blog_id = 8;
 $conn = new mysqli("localhost", "root", "", "blog_app_db");
 $get_blogs_sql = "SELECT * FROM blogs WHERE blogs.id='$blog_id'";
 $query = mysqli_query($conn, $get_blogs_sql);
@@ -27,6 +27,7 @@ $blogs = array();
 while($blog = mysqli_fetch_assoc($query)) {
     $blogs[] = $blog;
 }
+var_dump($blogs);
 $name = $blogs[0]['name'];
 $text = $blogs[0]['text'];
 ?>
@@ -42,10 +43,11 @@ $text = $blogs[0]['text'];
 </div>
 
 <div>
-    <form onsubmit="saveChanges(<?=$blog_id?>)">
-        <textarea rows="1" id="edit_name"><?=$name?></textarea>
+    <form>
+        <input type="hidden" value="<?=$blog_id?>">
+        <textarea rows="1" id="name" name="text"><?=$name?></textarea>
         <br>
-        <textarea id="edit_text"><?=$text?></textarea>
+        <textarea id="name" name="name"><?=$text?></textarea>
         <br>
         <input type="submit" value="Save changes">
     </form>

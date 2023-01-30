@@ -24,7 +24,7 @@ function deleteBlogPost($id): string
     return 'error';
 }
 
-function editBlogPost($id, $blog): string
+function saveBlogPostChanges($id, $blog): string
 {
     global $conn;
     $name = $blog->getName();

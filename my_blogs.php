@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/base_style.css">
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="js/delete_blog_post.js"></script>
+    <script src="js/save_blog_post_changes.js"></script>
 </head>
 
 <?php
@@ -52,7 +53,7 @@ while($blog = mysqli_fetch_assoc($query)) {
                 <?php if($blog['added_by_id'] === $_COOKIE['id']): ?>
                     <button type="button" style="margin-top: 5px" onclick="deleteBlogPost(<?=$blog['id']?>)">Delete</button>
                     <br>
-                    <form action="edit_blog_post.php" method="post">
+                    <form method="post" action="edit_blog_post.php">
                         <input type="hidden" name="id_input" id="id_input" value="<?=$blog['id']?>">
                         <input type="submit" value="Edit">
                     </form>
