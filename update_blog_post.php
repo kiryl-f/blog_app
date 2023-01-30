@@ -7,9 +7,14 @@ $id = $_POST['blog_id'];
 $name = $_POST['new_name'];
 $text = $_POST['new_text'];
 
-$res = saveBlogPostChanges($id, new Blog($name, $text));
-if ($res === 'blog_added') {
-    echo json_encode(array('res' => 'saved'));
+$blog = new Blog($name, $text);
+if($blog->getErrorMessage() === '') {
+    $res = saveBlogPostChanges($id, new Blog($name, $text));
+    if ($res === 'blog_added') {
+        echo json_encode(array('res' => 'saved'));
+    } else {
+        echo json_encode(array('res' => 'error'));
+    }
 } else {
-    echo json_encode(array('res' => 'error'));
+    echo json_encode(array('res' => $blog->getErrorMessage()));
 }

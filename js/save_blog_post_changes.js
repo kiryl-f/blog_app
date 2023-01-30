@@ -11,8 +11,10 @@ $(function () {
                 if(response['res'] === 'saved') {
                     alert('Changes saved!');
                     location.href = 'my_blogs.php';
-                } else {
+                } else if(response['res'] === 'error') {
                     alert('An error occurred while saving changes :(');
+                } else {
+                    alert(response['res']);
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
