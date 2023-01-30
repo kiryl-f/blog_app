@@ -17,6 +17,7 @@ require_once 'cookies.php';
 
 $blog_id = $_POST['id_input'];
 
+require_once 'blogs_db_handler.php';
 $blog = getBlogByID($blog_id);
 $name = $blog['name'];
 $text = $blog['text'];

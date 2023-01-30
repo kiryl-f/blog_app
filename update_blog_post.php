@@ -9,7 +9,7 @@ $text = $_POST['new_text'];
 
 $res = saveBlogPostChanges($id, new Blog($name, $text));
 if ($res === 'blog_added') {
-    echo json_encode(array('res' => 'added'));
+    echo json_encode(array('res' => 'saved'));
 } else {
     echo json_encode(array('res' => 'error'));
 }

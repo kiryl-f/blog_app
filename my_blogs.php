@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/base_style.css">
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="js/delete_blog_post.js"></script>
-    <script src="js/save_blog_post_changes.js"></script>
 </head>
 
 <?php
