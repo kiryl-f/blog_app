@@ -53,12 +53,6 @@ $blogs = getAllBlogs();
             <br>
             <a style="margin-bottom: 5px; margin-top: 5px" href="blog_page.php?id=<?php echo $blog['id']?>?name=<?php echo $blog['name']?>"><?= $blog['name'] .' ('. $blog['date'] .')' ?></a>
             <br>
-            <?php if(isset($_COOKIE['id'])): ?>
-                <?php if($blog['added_by_id'] === $_COOKIE['id']): ?>
-                    <button type="button" style="margin-top: 5px" onclick="deleteBlogPost(<?php echo $blog['id']?>)">Delete</button>
-                    <br>
-                <?php endif;?>
-            <?php endif;?>
         </div>
     <?php endforeach; ?>
 </div>
