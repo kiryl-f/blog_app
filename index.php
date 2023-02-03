@@ -48,14 +48,14 @@ $blogs = getAllBlogs();
 <div id="blogs_table" class="scroll">
     <?php foreach($blogs as $blog): ?>
         <div id="blogpost<?php echo $blog['id']?>" style="margin-top: 10px">
-            <img src="https://i.picsum.photos/id/168/200/200.jpg?hmac=VxnpUGg87Q47YRONmdsU2vNGSPjCs5vrwiAL-0hEIHM"
-                 alt="Ooops!" style="border-radius: 16px" onclick="expandImage()" id="blog_cover_img">
+            <img src="assets/blog-gc2b74ed2e_1920.jpg" width="200" height="200" alt="Ooops!" style="border-radius: 16px" id="blog_cover_img">
             <br>
             <a style="margin-bottom: 5px; margin-top: 5px" href="blog_page.php?id=<?php echo $blog['id']?>?name=<?php echo $blog['name']?>"><?= $blog['name'] .' ('. $blog['date'] .')' ?></a>
             <br>
         </div>
     <?php endforeach; ?>
 </div>
-</body>
 
 <footer> Kiryl(c) 2022 All rights reserved</footer>
+</body>
+
