@@ -58,7 +58,7 @@ function userExists($login, $password): string {
     if(count($data) === 0) {
         return 'not_exist';
     } else {
-        if ($data[0]['password'] === $password) {
+        if ($data[0]['password'] === md5($password) . 'salt') {
             setcookie('name', $data[0]['name']);
             setcookie('id', $data[0]['id']);
             return 'cool';
