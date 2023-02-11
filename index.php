@@ -29,9 +29,9 @@ $blogs = getAllBlogs();
     <a class="active" href="#home">Home</a>
     <div class="topnav-right">
         <a href=<?php echo $log_in_button_link?>><?php echo $log_in_button_text?></a>
-        <a href="registration.php">Create an account</a>
+        <a href="main_pages/registration.php">Create an account</a>
         <?php if(isset($_COOKIE['id'])):?>
-            <a href="my_blogs.php">My blogs</a>
+            <a href="main_pages/my_blogs.php">My blogs</a>
         <?php endif;?>
     </div>
 </div>
@@ -40,7 +40,7 @@ $blogs = getAllBlogs();
 
 <?php if(isset($_COOKIE['name'])) : ?>
     <div style="margin-bottom: 8px; margin-top: 8px">
-        <form action="new_blog_post.php">
+        <form action="main_pages/new_blog_post.php">
             <input type="submit" value="Create a blog post" id="new_blog">
         </form>
     </div>
@@ -50,7 +50,7 @@ $blogs = getAllBlogs();
         <div id="blogpost<?php echo $blog['id']?>" style="margin-top: 10px">
             <img src="assets/blog_pic.jpg" width="200" height="200" alt="Ooops!" style="border-radius: 16px" id="blog_cover_img">
             <br>
-            <a style="margin-bottom: 5px; margin-top: 5px" href="blog_page.php?id=<?php echo $blog['id']?>?name=<?php echo $blog['name']?>"><?= $blog['name'] .' ('. $blog['date'] .')' ?></a>
+            <a style="margin-bottom: 5px; margin-top: 5px" href="main_pages/blog_page.php?id=<?php echo $blog['id']?>?name=<?php echo $blog['name']?>"><?= $blog['name'] .' ('. $blog['date'] .')' ?></a>
             <br>
         </div>
     <?php endforeach; ?>

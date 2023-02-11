@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <title><?=$_GET['name']?></title>
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/base_style.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/base_style.css">
 </head>
 
 <?php
 $log_in_button_text = '';
 $log_in_button_link = '';
 
-require_once 'cookies.php';
+include_once 'cookies.php';
 
 $id = $_GET['id'];
 
@@ -23,7 +23,7 @@ $text = $data[0]['text'];
 ?>
 
 <div class="topnav">
-    <a href="index.php">Home</a>
+    <a href="../index.php">Home</a>
     <div class="topnav-right">
         <a href=<?php echo $log_in_button_link?>><?php echo $log_in_button_text?></a>
         <a href="registration.php">Create an account</a>

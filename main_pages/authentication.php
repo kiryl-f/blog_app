@@ -3,17 +3,17 @@
 
 <head>
     <title>Log in</title>
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/input_forms_style.css">
-    <link rel="stylesheet" href="css/base_style.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/input_forms_style.css">
+    <link rel="stylesheet" href="../css/base_style.css">
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-    <script src="js/login.js"></script>
+    <script src="../js/login.js"></script>
 </head>
 
 <body>
 
 <div class="topnav">
-    <a href="index.php">Home</a>
+    <a href="../index.php">Home</a>
     <div class="topnav-right">
         <a class="active" href="authentication.php">Log in</a>
         <a href="registration.php">Create an account</a>

@@ -3,12 +3,12 @@ $(function () {
         e.preventDefault();
         $.ajax({
             type: 'post',
-            url: 'check_user.php',
+            url: '../check_user.php',
             dataType: 'json',
             data: $('form').serialize(),
             success: function (response) {
                 if(response['result'] === 'cool') {
-                    location.href = 'index.php';
+                    location.href = '../index.php';
                 } else {
                     alert("result: " + response['result']);
                 }

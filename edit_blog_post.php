@@ -28,8 +28,8 @@ $text = $blog['text'];
     <a href="index.php">Home</a>
     <div class="topnav-right">
         <a href=<?php echo $log_in_button_link?>><?php echo $log_in_button_text?></a>
-        <a href="registration.php">Create an account</a>
-        <a class="active" href="my_blogs.php">My blogs</a>
+        <a href="main_pages/registration.php">Create an account</a>
+        <a class="active" href="main_pages/my_blogs.php">My blogs</a>
     </div>
 </div>
 

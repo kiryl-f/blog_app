@@ -3,7 +3,7 @@ function deleteBlogPost(id) {
     if(confirm("Are you sure you want to delete this blog post?")) {
         $.ajax({
             type: 'POST',
-            url: 'delete_blog_post.php',
+            url: '../delete_blog_post.php',
             dataType: 'json',
             data: ({id: id}),
             success: function (response) {
