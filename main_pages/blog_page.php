@@ -10,7 +10,7 @@
 $log_in_button_text = '';
 $log_in_button_link = '';
 
-include_once 'cookies.php';
+include_once '../get_cookies.php';
 
 $id = $_GET['id'];
 

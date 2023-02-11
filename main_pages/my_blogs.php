@@ -14,7 +14,7 @@
 $log_in_button_text = '';
 $log_in_button_link = '';
 
-require_once 'cookies.php';
+require_once '../get_cookies.php';
 require_once 'blogs_db_handler.php';
 
 $id = $_COOKIE['id'];

@@ -18,7 +18,7 @@
 $log_in_button_text = '';
 $log_in_button_link = '';
 $conn = null;
-require_once 'cookies.php';
+require_once 'get_cookies.php';
 require_once 'create_db_and_connect.php';
 
 require_once 'blogs_db_handler.php';
