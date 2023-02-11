@@ -9,8 +9,10 @@ $(function () {
             success: function (response) {
                 if(response['result'] === 'cool') {
                     location.href = '../index.php';
+                } else if(response['result'] === 'password_incorrect'){
+                    alert('Incorrect password');
                 } else {
-                    alert("result: " + response['result']);
+                    alert('No user with such username');
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {

@@ -9,6 +9,15 @@
     <script src="../js/new_blog_post.js"></script>
 </head>
 
+<?php
+
+$log_in_button_text = '';
+$log_in_button_link = '';
+
+require_once '../get_cookies.php';
+?>
+
+
 <body>
 
 <div class="topnav">
