@@ -10,5 +10,5 @@ if(isset($_COOKIE['name'])) {
     $id = $_COOKIE['id'];
     echo "Hello, $name (user $id)";
     $log_in_button_text = 'Log out';
-    $log_in_button_link = 'log_out.php';
+    $log_in_button_link = '../log_out.php';
 }
