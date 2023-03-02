@@ -30,6 +30,8 @@ function createUser($user) {
         echo json_encode(array('result' => checkUserFields($user)));
         exit;
     }
+
+    $user->saltPassword();
     $login = $user->getLogin();
     $password = $user->getPassword();
     $name = $user->getName();

@@ -3,6 +3,7 @@ $db_name = "blog_app_db";
 $conn = new mysqli("localhost", "root", "");
 if(!mysqli_select_db($conn, $db_name)) {
     $create_db_sql = "CREATE DATABASE blog_app_db";
+    $conn->query($create_db_sql);
 }
 $conn->select_db($db_name);
 $create_users_table_sql = "CREATE TABLE IF NOT EXISTS users (
